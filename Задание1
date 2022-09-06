@@ -1,0 +1,23 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        for i in range(n):
+            if i not in nums:
+                return i
+        return n
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        right_nums = sorted(nums)
+        for i in range(n):
+            if right_nums[i] != i:
+                return i
+        return n
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        sum_nums = sum(nums)
+        sum_with_mis_num = sum(range(n + 1))
+        return sum_with_mis_num - sum_nums

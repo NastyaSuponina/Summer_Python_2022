@@ -1,0 +1,14 @@
+def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    l_alphabet = alphabet.lower()
+    right_key = shift % len(alphabet)
+    o_text = list(plaintext)
+    ciphertext = ''
+    for i in range(len(o_text)):
+        if not o_text[i] in alphabet and not o_text[i] in l_alphabet:
+            ciphertext = ciphertext + o_text[i]
+        elif o_text[i] == o_text[i].upper():
+            ciphertext = ciphertext + alphabet[(alphabet.index(o_text[i]) + right_key) % len(alphabet)]
+        else:
+            ciphertext = ciphertext + l_alphabet[(l_alphabet.index(o_text[i]) + right_key) % len(alphabet)]
+    return ciphertext
